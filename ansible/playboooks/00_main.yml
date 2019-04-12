@@ -1,0 +1,3 @@
+---
+- import_playbook: 01_setup_storage.yml
+- import_playbook: 02_setup_postgresql.yml
