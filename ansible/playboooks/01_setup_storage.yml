@@ -1,7 +1,7 @@
 - name: Setup-storage for pg-bench
   hosts: all
   tasks:
-     - name: Create a volume group on top of /dev/sdb
+     - name: Create a volume group on top of /dev/vda
        lvg:
          vg: postgresql
          pvs: /dev/vda
