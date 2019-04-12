@@ -5,9 +5,9 @@ import logging
 
 def get_connection():
     connection = sdk.Connection(
-        url='',
-        username='',
-        password="",
+        url='https://rhhi-engine.perf.redhat.com/ovirt-engine/api',
+        username='admin@internal',
+        password="redhat123",
         insecure=True,
         log=logging.getLogger()
     )
