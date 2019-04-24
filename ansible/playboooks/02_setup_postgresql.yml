@@ -41,8 +41,27 @@
          regexp: '#checkpoint_segments='
          line: 'checkpoint_segments=8'
 
+    - name: Edit postgresql.conf listen_addresses
+      lineinfile:
+        path: /var/lib/pgsql/data/postgresql.conf
+        line: "listen_addresses='*'"
+
+
+    - name: Edit pg_hba.conf
+      blockinfile:
+        path: /var/lib/pgsql/data/pg_hba.conf
+        block : |
+          host    all             all              0.0.0.0/0                       trust
+          host    all             all              ::/0                            trust
 
     - name: Start postgresql.service
       systemd:
         state: started
         name: postgresql
+
+    - name: Allow firewall for port 5432
+      firewalld:
+        port: 5432/tcp
+        permanent: yes
+        zone: public
+        state: enabled
