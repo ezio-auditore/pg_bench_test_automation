@@ -1,4 +1,3 @@
 .idea/
-        pre_setup/config_variables.pyc
-        pre_setup/connection.pyc
-        pre_setup/config_variables.pyc
+*.pyc
+*.log

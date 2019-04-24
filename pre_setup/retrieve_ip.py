@@ -1,5 +1,6 @@
 import validate_ip
 
+import time
 from connection import get_connection
 from config_variables import *
 
@@ -27,6 +28,7 @@ def get_ip_of_vm():
 
 def main():
     while True:
+        time.sleep(10)
         if get_ip_of_vm():
             print (get_ip_of_vm())
             break

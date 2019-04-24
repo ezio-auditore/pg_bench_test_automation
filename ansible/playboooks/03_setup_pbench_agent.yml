@@ -1,0 +1,31 @@
+- name: Setup PBench-Agent on Host
+  hosts: all
+  tasks:
+
+    - name: Install yum repos
+      yum_repository:
+        name: Pbench
+        file: pbench
+        description: Internal repo for pbench
+        baseurl: http://pbench.perf.lab.eng.bos.redhat.com/repo/production/$releasever/
+        gpgcheck: yes
+        enabled: yes
+        skip_if_unavailable: yes
+
+    - name: install copr repo
+      yum_repository:
+        name: pbench-copr
+        baseurl: https://copr-be.cloud.fedoraproject.org/results/ndokos/pbench/epel-7-$basearch/
+        file: pbench
+        description: Copr repo for pbench owned by ndokos
+        gpgcheck: yes
+        enabled: yes
+        skip_if_unavailable: yes
+
+    - name: Install pbench-agent
+      yum:
+        name: pbench-agent
+        state: present
+
+    - name: SSH private key generation
+      shell: ssh-keygen -y -f /opt/pbench-agent/id_rsa >> /home/pbench/.ssh/authorized_keys
