@@ -3,3 +3,5 @@
 *.log
 pgbencher/
 *.retry
+hosts.txt
+results-master*/

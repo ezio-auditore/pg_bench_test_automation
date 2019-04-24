@@ -8,6 +8,7 @@ connection = get_connection()
 
 
 def add_disk(sparse=False):
+    print ("Adding new disk to VM ---------")
     vms_service = connection.system_service().vms_service()
     vm = vms_service.list(search='name='+VM_NAME)[0]
 

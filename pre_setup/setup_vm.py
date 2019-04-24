@@ -11,6 +11,7 @@ logging.basicConfig(level=logging.DEBUG, filename=filename)
 
 
 def create_and_run_vm():
+    print ("Creating vm ---")
     connection = get_connection()
     system_service = connection.system_service()
 
@@ -39,6 +40,7 @@ def create_and_run_vm():
     disk = disk_attachments[0].disk
     vms_service = system_service.vms_service()
 
+    print("Adding Disk-----")
     vm = vms_service.add(
         types.Vm(
             name=VM_NAME,
@@ -74,6 +76,7 @@ def create_and_run_vm():
 
     vm_service.start()
 
+    print("Starting vm waiting for ip-------")
     while True:
         time.sleep(10)
         vm = vm_service.get()
