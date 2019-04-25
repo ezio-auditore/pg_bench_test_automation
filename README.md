@@ -6,6 +6,7 @@
 
 + ovirt engine sdk
 + psycopg2
++ ansible
 + Paswordless ssh connection between the hosts
 + edit hosts.txt
 + Ovirt Api url
