@@ -41,7 +41,7 @@ bash ./post_setup/settup_pg_bencher.sh
 
 ansible-playbook -i $VM_IP, ./pgbencher/main.yml -v &
 
-bash ./common/run_iostat_vmstat_sar.sh  $(echo "${HOSTS[@]}")
+bash ./common/run_iostat_vmstat_sar.sh  $(echo "${HOSTS[@]}") &
 
 wait
 
