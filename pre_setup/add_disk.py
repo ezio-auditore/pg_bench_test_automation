@@ -18,7 +18,7 @@ def add_disk(sparse=False):
     disk_attachment = disk_attachments_service.add(
         types.DiskAttachment(
             disk=types.Disk(
-                name=template_name+'disk',
+                name=template_name+'-disk',
                 description='Thinly-provisioned' if sparse else 'Preallocated',
                 format=types.DiskFormat.RAW,
                 provisioned_size=80 * 2 ** 30,
