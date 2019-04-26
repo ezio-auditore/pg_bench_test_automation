@@ -11,6 +11,7 @@
 + edit hosts.txt
 + Ovirt Api url
 + Edit connection url and creds in ./presetup/connection.py
++ Configure other variables in ./pre_setup/config_variables.py
 
 *Optional*
 
